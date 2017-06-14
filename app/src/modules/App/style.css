@@ -1,0 +1,16 @@
+.App{
+	text-align: center;
+	height: 100%;
+}
+.login-box{
+	margin-top: 120px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.card-box{
+	text-align: left;
+	padding: 40px;
+}
+.login-button{
+	margin-top: 20px;
+}

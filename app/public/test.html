@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Client Demo</title>
+</head>
+  <body style="margin:0px;background-color: #f7e246">
+    <script type="text/javascript">
+      var lc = document.createElement('script');
+      lc.id = 'livechat';
+      lc.setAttribute('url',['https:' == document.location.protocol ? 'https://' : 'http://'] + 'public.localhost:3000/client');
+      lc.type = 'text/javascript'; 
+      lc.async = true;
+      lc.src = ['https:' == document.location.protocol ? 'https://' : 'http://'] + 'localhost:3000/load.js';
+      document.body.appendChild(lc);
+    </script>
+  </body>
+</html>
