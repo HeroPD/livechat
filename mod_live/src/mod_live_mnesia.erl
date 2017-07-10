@@ -18,4 +18,7 @@ init(_Host, _Opts) ->
 	ejabberd_mnesia:create(?MODULE, lparticipant,
 			   [{disc_copies, [node()]},
 			    {attributes, record_info(fields, lparticipant)}]),
+	ejabberd_mnesia:create(?MODULE, lhistory,
+			   [{disc_copies, [node()]},
+			    {attributes, record_info(fields, lhistory)}]),
 	ok.

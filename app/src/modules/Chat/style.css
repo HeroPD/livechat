@@ -6,3 +6,16 @@
 	height: 100%;
 	width: 100%;
 }
+
+.vertical-center {
+  height:300px;
+  width:100%;
+  font: 0/0 a;
+}
+
+.vertical-center:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
