@@ -1,3 +1,5 @@
+var script = document.getElementById('livechat');
+
 var container = document.createElement('div');
 container.id = 'livechat-container';
 container.style.position = 'fixed';
@@ -11,10 +13,10 @@ var frameContainer = document.createElement('div');
 frameContainer.id = 'livechat-frame-container';
 frameContainer.style.position = 'fixed';
 frameContainer.style.display = 'inline-block';
-frameContainer.style.bottom = '-610px';
+frameContainer.style.bottom = '-'+script.height+'px';
 frameContainer.style.right = '10px';
 frameContainer.style.width = '350px';
-frameContainer.style.height = '380px';
+frameContainer.style.height = script.height+'px';
 frameContainer.style.WebkitTransition = 'all 0.3s';
 frameContainer.style.transition = 'all 0.3s';
 
@@ -27,7 +29,7 @@ closeButton.style.cursor = 'pointer';
 closeButton.style.width = '15px';
 closeButton.style.height = '15px';
 closeButton.addEventListener('click',function(){
-	frameContainer.style.bottom = '-390px';
+	frameContainer.style.bottom = '-'+script.height+'px';
 });
 var closesvg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 220.176 220.176" style="enable-background:new 0 0 220.176 220.176;" xml:space="preserve" width="15px" height="15px">\
 <g>\
@@ -50,7 +52,6 @@ iframe.style.width = '100%';
 iframe.setAttribute('allowtransparency','true');
 iframe.setAttribute('scrolling','no');
 iframe.setAttribute('frameborder',0);
-var script = document.getElementById('livechat');
 iframe.setAttribute('src',script.getAttribute('url'));
 frameContainer.appendChild(iframe);
 

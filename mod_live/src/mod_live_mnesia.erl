@@ -2,8 +2,7 @@
 -behaviour(mod_live).
 
 %% API
--export([init/2,
-	add_user/2]).
+-export([init/2]).
 
 -include("logger.hrl").
 -include("mod_live.hrl").

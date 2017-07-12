@@ -9,7 +9,7 @@ h3 {
 	margin: 0;
 }
 
-input[type=text] {
+input[type=text], select {
 	width: 100%;
 	padding: 8px;
 	margin: 8px 0;
