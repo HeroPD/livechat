@@ -13,7 +13,7 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import './style.css'
 
-class ChatContainer extends Component {
+export class ChatContainer extends Component {
 
 	render() {
 		const styles = {
@@ -34,7 +34,7 @@ class ChatContainer extends Component {
 	}
 }
 
-class ChatBody extends Component {
+export class ChatBody extends Component {
 	render() {
 		const styles = {
 			bodyContainer: {
@@ -53,7 +53,7 @@ class ChatBody extends Component {
 	}
 }
 
-class ChatBottom extends Component {
+export class ChatBottom extends Component {
 	render() {
 		const styles = {
 			bottomContainer: {
@@ -95,11 +95,12 @@ class ChatBottom extends Component {
 	}
 }
 
-class ChatLeftBubble extends Component {
+export class ChatLeftBubble extends Component {
 	render() {
 		const styles = {
 			leftBubble: {
 				width: '100%',
+				textAlign: 'left',
 				padding: 10
 			}
 		}
@@ -111,7 +112,7 @@ class ChatLeftBubble extends Component {
 	}
 }
 
-class ChatRightBubble extends Component {
+export class ChatRightBubble extends Component {
 	render() {
 		const styles = {
 			rightBubble: {
@@ -128,7 +129,7 @@ class ChatRightBubble extends Component {
 	}
 }
 
-class ChatTitle extends Component {
+export class ChatTitle extends Component {
 	render() {
 		const styles = {
 			titleContainer: {

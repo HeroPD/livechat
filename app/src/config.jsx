@@ -28,7 +28,7 @@ export const Config = {
 		{
 			label: 'How can we help you?',
 			key: 'problem',
-			required: true,
+			required: false,
 			type: 'text'
 		},
 	]
