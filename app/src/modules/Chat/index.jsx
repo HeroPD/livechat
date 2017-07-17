@@ -4,7 +4,6 @@ import ChatIcon from 'material-ui/svg-icons/communication/chat';
 import PollIcon from 'material-ui/svg-icons/social/poll';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import Paper from 'material-ui/Paper';
 import {List, ListItem} from 'material-ui/List';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import Subheader from 'material-ui/Subheader';

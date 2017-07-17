@@ -5,10 +5,10 @@
 <iq from="username@host" type='set'>
 	<create 
 		xmlns="live:create:chat"
-		name="name-text"
-		email="email-text"
-		question="question-text"
-	/>
+	>
+		<name>visitor-name<name>
+		...
+	<create>
 </iq>
 
 <iq from="username@host" to="username@host" type="result">
@@ -19,6 +19,10 @@
 </iq>
 
 ```
+
+# Get Chat List
+
+# Get Pending Chat List
 
 # Join Chat
 

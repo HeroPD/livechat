@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import XMPP from "../XMPP";
+import Cookie from "../Util/cookie.jsx";
+import { Strophe } from "strophe.js";
 import { Config } from '../../config.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { ChatContainer, ChatBody, ChatBottom, ChatTitle, ChatRightBubble, ChatLeftBubble } from '../Chat'
@@ -130,15 +131,15 @@ class RequestForm extends Component {
         formItems: newFormItems
       }
     );
-
-    var xmpp = new XMPP(Config.connectionUrl);
-    xmpp.connectAnonymous(Config.domain, null);
+    if (isValidateSuccess && this.props.onSubmit) {
+      this.props.onSubmit(this.state.formItems);
+    }
     event.preventDefault();
   }
 
   renderFormItem() {
     var formFieldList = [];
-    this.state.formItems.map((item, index)=> {
+    this.state.formItems.forEach((item, index)=> {
       if (item.type === 'text'){
         formFieldList.push(<FormItemText id={index} key={index} required={item.required} error={item.error} label={item.label} validate={item.validate} onFocused={this.onFocused} onValueChange={this.onValueChange}/>);
       } else if (item.type === 'list') {
@@ -199,13 +200,53 @@ class Conversation extends Component {
 class Client extends Component {
   constructor(props) {
     super(props);
-    this.chatMode = false;
+    this.state = {
+      chatMode: false
+    }
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onConnect = this.onConnect.bind(this);
   }
+
+  onConnect(status) {
+    console.log(status);
+    if (status === Strophe.Status.CONNECTING) {
+      console.log('Strophe is connecting.');
+    } else if (status === Strophe.Status.CONNFAIL) {
+      console.log('Strophe failed to connect.');
+    } else if (status === Strophe.Status.DISCONNECTING) {
+      console.log('Strophe is disconnecting.');
+    } else if (status === Strophe.Status.DISCONNECTED) {
+      console.log('Strophe is disconnected.');
+    } else if (status === Strophe.Status.CONNECTED) {
+      console.log('Strophe is connected.');
+      this.xmpp.createChat(this.data, success => {
+        console.log(success);
+      }, failed => {
+        console.log(failed);
+      });
+    } else if (status === Strophe.Status.ATTACHED) {
+      console.log('Strophe is attached.');
+    }
+  };
+
+  onSubmit(items) {
+    console.log(items);
+    this.data = items.map(item => {
+      var newitem = {
+        key: item.key,
+        value: item.value
+      };
+      return newitem;
+    });
+    this.xmpp = new XMPP(Config.connectionUrl);
+    this.xmpp.connectAnonymous(Config.domain, this.onConnect);
+  }
+
   render() {
     return (
       <div className="client">
         <div className="container">
-          {this.chatMode ? <Conversation /> : <RequestForm />}
+          {this.state.chatMode ? <Conversation /> : <RequestForm onSubmit={this.onSubmit}/>}
         </div>
       </div>
     );
