@@ -41,16 +41,18 @@ process_local_iq(From, _, #iq{type='set', sub_el = #xmlel{name = <<"create">>, a
             	{<<"xmlns">>, ?NS_MODLIVE},
             	{<<"token">>, Token}
             ],
-            children = [{xmlcdata,<<"succesfull">>}]
+            children = [{xmlcdata,<<"succesfull v">>}]
           }
         ]
       };
+process_local_iq(From, _, #iq{type='set', sub_el = #xmlel{name = <<"join>>">>, attrs = Attrs} = Sub_el} = IQ) ->
+
 process_local_iq(_From, _To, IQ) ->
 	IQ#iq{type = error, sub_el = [?ERR_FORBIDDEN]}.
 
 depends(_Host, _Opts) ->
   [].
 
-mod_opt_type(db_type) -> fun(T) -> ?INFO_MSG("dbtype ~p",[T]),ejabberd_config:v_db(?MODULE, T) end;
+mod_opt_type(db_type) -> fun(T) -> ejabberd_config:v_db(?MODULE, T) end;
 mod_opt_type(iqdisc) -> fun gen_iq_handler:check_type/1;
 mod_opt_type(_) -> [db_type, iqdisc].

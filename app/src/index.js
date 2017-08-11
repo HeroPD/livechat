@@ -7,6 +7,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 ReactDOM.render(
-	<Routes />,
-	document.getElementById('root')
+  <Routes />,
+  document.getElementById('root')
 );

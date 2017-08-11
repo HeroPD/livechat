@@ -9,14 +9,14 @@ import Client from './modules/Client';
 
 const Routes = (props) => (
   <Router>
-		<div>
-			<Switch>
-				<Route exact path="/" component={App}/>
-				<Route exact path="/chat" component={Chat}/>
-				<Route exact path="/client" component={Client}/>
-		    <Route path="*" component={NotFound}/>
-	    </Switch>
-	  </div>
+    <div>
+      <Switch>
+        <Route exact path="/" component={App}/>
+        <Route exact path="/chat" component={Chat}/>
+        <Route exact path="/client" component={Client}/>
+        <Route path="*" component={NotFound}/>
+      </Switch>
+    </div>
   </Router>
 );
 

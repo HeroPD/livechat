@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import XMPP from "../XMPP";
-import Cookie from "../Util/cookie.jsx";
+import { Cookie } from "../Util/cookie.jsx";
 import { Strophe } from "strophe.js";
 import { Config } from '../../config.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -219,11 +219,23 @@ class Client extends Component {
       console.log('Strophe is disconnected.');
     } else if (status === Strophe.Status.CONNECTED) {
       console.log('Strophe is connected.');
-      this.xmpp.createChat(this.data, success => {
-        console.log(success);
-      }, failed => {
-        console.log(failed);
-      });
+      console.log(Cookie.getCookie('token'));
+      if (Cookie.getCookie('token').length > 0) {
+        this.xmpp.joinChat(Cookie.getCookie('token'), success => {
+
+        }, failed => {
+
+        })
+      } else {
+        this.xmpp.createChat(this.data, token => {
+          console.log(token);
+          Cookie.setCookie('token', token, 3);
+        }, failed => {
+          Cookie.setCookie('token', null, 0);
+          console.log(failed);
+        });
+      }
+      
     } else if (status === Strophe.Status.ATTACHED) {
       console.log('Strophe is attached.');
     }

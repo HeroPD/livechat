@@ -62,3 +62,6 @@ addchatinfo([#xmlel{attrs = Attrs} = _H|T], Token, Server) ->
 	end,
 	mnesia:transaction(F),
 	addchatinfo(T, Token, Server).
+
+joinchat(Token, From) ->
+	ok.
