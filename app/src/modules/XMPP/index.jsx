@@ -41,6 +41,7 @@ class XMPP {
   }
 
   joinChat(token, callback, errback) {
+    console.log(token);
     console.log('joinChat');
   }
 }
