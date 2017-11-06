@@ -1,5 +1,5 @@
 export const Config = { 
-  connectionUrl: 'ws://public.localhost:5280/websocket/',
+  connectionUrl: 'wss://public.localhost:5280/websocket/',
   domain: 'public.localhost',
   fieldConfig: [
     {

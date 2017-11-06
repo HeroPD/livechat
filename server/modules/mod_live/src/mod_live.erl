@@ -45,20 +45,20 @@ process_local_iq(From, _, #iq{type='set', sub_el = #xmlel{name = <<"create">>, a
           }
         ]
       };
-process_local_iq(From, _, #iq{type='set', sub_el = #xmlel{name = <<"join>>">>, attrs = Attrs} = Sub_el} = IQ) ->
-	Mod = gen_mod:db_mod(mnesia, ?MODULE),
-	IQ#iq{type = result,
-				sub_el = [
-					#xmlel{
-						name = <<"join">>,
-						attrs = [
-							{<<"xmlns">>, ?NS_MODLIVE},
-							{<<"token">>, Token}
-						],
-						children = [{xmlcdata,<<"succesfull">>}]
-					}
-				]
-			};
+% process_local_iq(From, _, #iq{type='set', sub_el = #xmlel{name = <<"join>>">>, attrs = Attrs} = Sub_el} = IQ) ->
+% 	Mod = gen_mod:db_mod(mnesia, ?MODULE),
+% 	IQ#iq{type = result,
+% 				sub_el = [
+% 					#xmlel{
+% 						name = <<"join">>,
+% 						attrs = [
+% 							{<<"xmlns">>, ?NS_MODLIVE},
+% 							{<<"token">>, Token}
+% 						],
+% 						children = [{xmlcdata,<<"succesfull">>}]
+% 					}
+% 				]
+% 			};
 process_local_iq(_From, _To, IQ) ->
 	IQ#iq{type = error, sub_el = [?ERR_FORBIDDEN]}.
 

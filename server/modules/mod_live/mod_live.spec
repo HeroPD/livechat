@@ -1,5 +1,5 @@
 author: "Munkhuu"
 category: "chat"
 summary: "live chat"
-home: ""
-url: ""
+home: "https://github.com/HeroPD/livechat"
+url: "https://github.com/HeroPD/livechat"
