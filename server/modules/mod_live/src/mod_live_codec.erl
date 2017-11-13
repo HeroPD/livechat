@@ -204,11 +204,9 @@ recompile_resolver(Mods, ResolverMod) ->
 records() -> [].
 
 get_mod(<<"chat-create">>, <<"mod:live:chat">>) -> live;
-get_mod(<<"item">>, <<"mod:live:chat">>) -> live;
 get_mod(Name, XMLNS) ->
     mod_live_codec_external:lookup(Name, XMLNS).
 
 get_mod({chat_create, _}) -> live;
-get_mod({chat_info, _, _}) -> live;
 get_mod(Record) ->
     mod_live_codec_external:lookup(Record).

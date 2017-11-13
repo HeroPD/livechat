@@ -8,5 +8,5 @@ ENV XMPP_DOMAIN=localhost \
 		EJABBERD_SOURCE_MODULES=mod_live
 COPY ./conf/ejabberd.yml.tpl /opt/ejabberd/conf/ejabberd.yml.tpl
 # ADD ./modules $EJABBERD_HOME/module_source
-ADD ./docker $EJABBERD_HOME
+# ADD ./docker $EJABBERD_HOME
 # RUN sh build_spec.sh
