@@ -5,7 +5,7 @@
 -export([init/2]).
 
 -include("logger.hrl").
--include("jlib.hrl").
+-include("xmpp.hrl").
 -include("mod_live.hrl").
 
 %%%===================================================================

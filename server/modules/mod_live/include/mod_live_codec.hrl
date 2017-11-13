@@ -3,3 +3,5 @@
 
 -record(chat_create, {data = <<>> :: binary()}).
 -type chat_create() :: #chat_create{}.
+
+-type xmpp_element() :: chat_create().
