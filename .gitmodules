@@ -1,0 +1,3 @@
+[submodule "server/xmpp"]
+	path = server/xmpp
+	url = https://github.com/processone/xmpp.git

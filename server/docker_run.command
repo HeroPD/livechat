@@ -1,4 +1,4 @@
-docker run -d \
+docker run \
     --name "ejabberd" \
     -p 5222:5222 \
     -p 5269:5269 \
@@ -9,4 +9,5 @@ docker run -d \
     -e "EJABBERD_ADMINS=admin@public.localhost" \
     -e "EJABBERD_USERS=admin@public.localhost:pass" \
     -e "TZ=Asia/Ulaanbaatar" \
+    -v /Users/showtime/WORK/livechat/server/modules:/opt/ejabberd/module_source \
     chatserver
